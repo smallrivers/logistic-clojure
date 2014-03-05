@@ -65,7 +65,7 @@
 	(def params (lr/get-params 0.8 0.0 1000))
 
 	; fit model on training data
-	(def theta (lr/fit params train-data 10))
+	(def theta (lr/fit params train-data 100 5))
 
 	; predict labels and probabilities for testing data
 	(def y-pred (lr/predict (test-data :data) theta))

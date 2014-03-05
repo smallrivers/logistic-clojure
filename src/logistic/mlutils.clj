@@ -82,7 +82,7 @@
 	(if (= b nil) [mat]
 		(let [[m n] (c/size mat)
 			  div (math/ceil (float (/ m b)))]
-			(if (>= b m) [mat]
+			(if (> b m) [mat]
 				(loop [i 0 j b res []]
 					(cond 
 						(and (< i m) (< j m))

@@ -89,8 +89,11 @@
 		  tmp (c/set grad 0 0 bias)
 		  adjustment (c/mult grad alpha)]
 		(c/- theta adjustment)))
-
-(defn fit 
+ 
+(defn fit
+	"Performs gradient descent to optimize the parameters for the training data.
+	 Note: The function is overloaded so that unecessary splitting is not processes
+	 if batch size parameters are missing."
 	; batch processing
 	([params data]
 	(let [[alpha lambda maxiter gtol] (unpack-params params)

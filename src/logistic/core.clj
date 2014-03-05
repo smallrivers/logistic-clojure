@@ -26,14 +26,6 @@
 
 	(:gen-class :main true))
 
-; ; parses a GET request query sting into a clojure Map object
-; (import '[org.eclipse.jetty.util UrlEncoded MultiMap])
-; (defn parse-query-string [query]
-;   (let [params (MultiMap.)]
-;     (UrlEncoded/decodeTo query params "UTF-8")
-;     (into {} params)))
-
-
 ; define the routes for the app handler
 (defroutes main-routes
 	(GET "/" [] (resp/resource-response "logistic.html")))
@@ -65,7 +57,14 @@
 	(def params (lr/get-params 0.8 0.0 1000))
 
 	; fit model on training data
-	(def theta (lr/fit params train-data 100 5))
+	; the last two parameters for lr/fit adjust mini-batch size and level of 
+	; parallelism respectively
+	; nil for either parameter implies no data splitting
+	; Note: The fit function is overloaded so that unecessary splitting is not processes
+	; if batch parameters are missing.
+	(def theta (lr/fit params train-data 10))
+	; an example of a fit call with mini-batch processing and parallelism is as follows:
+	; (def theta (lr/fit params train-data 1000 20))
 
 	; predict labels and probabilities for testing data
 	(def y-pred (lr/predict (test-data :data) theta))

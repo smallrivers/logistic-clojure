@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Parallelized Logistic Regression In Clojure</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/json3/3.3.0/json3.min.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <h1>CIS 650 Final Project<h1>
+      <h2>A Parallelized/Vectorized Implementation of Logistic Regression in Clojure<h2>
+      <h3>Interface:</h3>
+      <p id="result"/>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+  
+$(document).ready(function() {
+  $res = $('#result'); // result div jquery selector
+  $main = $('#main'); // main div jquery selector
+
+  $res.text("Welcome To Logistic Regression in Clojure")
+    .css({
+      'margin-left': '20px',
+      color: 'blue'
+    });
+
+  // // add a text area and button
+  // var $input_field = $('<fieldset></fieldset>');
+  // $('<legend/>').append($('<span/>')
+  //   .text('Course Number Input'))
+  //   .appendTo($input_field);
+  
+  // $input_field.append('<br>Enter the number of the course you want to find prereqs for below:<br>');
+  // $('<div/>').css('margin-top', '5px').appendTo($input_field)
+  // $('<input/>')
+  //   .attr({
+  //     type: 'text',
+  //     size: 20,
+  //     id: 'courseNum',
+  //     maxlength: 20,
+  //     value: ''
+  //   })
+  //   .keyup(function(event){
+  //     if(event.keyCode == 13){
+  //         $("#submitter").click();
+  //     }
+  //   })
+  //   .appendTo($input_field);
+
+  // $('<button/>')
+  //   .attr('id', 'submitter')
+  //   .text('Submit')
+  //   .click(function() {
+  //     // get the text from the input fields
+  //     var course = $("#courseNum").val();
+
+  //     // verify input
+  //     if (!isNumber(course)) {
+  //       alert("Please enter a valid number as input.");
+  //       return;
+  //     }
+
+  //     // make an AJAX Post request to load Ontology and serialize it into a JSON format.
+  //       $.post("get-prereqs", 
+  //       {
+  //         course: course,
+  //       },
+  //       function(data, status, xhr) {
+  //         // set result to data
+  //         $res.text(data);
+  //       });
+  //   })
+  //   .appendTo($input_field);
+
+  // $main.append($input_field)
+
+  /* UTILITY */
+  //  verify numerical input
+  function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
+});
+
+    </script>
+
+  </body>
+</html>

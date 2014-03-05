@@ -52,10 +52,10 @@
 	(println "Logistic -main started...")
 
 	; load datasets
-	(def train-data (mlu/load-data "spamdata/spamtrain.csv"))
-	(def test-data (mlu/load-data "spamdata/spamtest.csv"))
-	; (def train-data (mlu/load-data "trivialdata/train.csv"))
-	; (def test-data (mlu/load-data "trivialdata/test.csv"))
+	(def train-data (mlu/load-data "data/spamdata/spamtrain.csv"))
+	(def test-data (mlu/load-data "data/spamdata/spamtest.csv"))
+	; (def train-data (mlu/load-data "data/trivialdata/train.csv"))
+	; (def test-data (mlu/load-data "data/trivialdata/test.csv"))
 
 	; scale data
 	(def train-data (mlu/scale-features train-data -1.0 1.0))

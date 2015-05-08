@@ -1,0 +1,15 @@
+*jar
+/lib/
+/classes/
+/target/
+/autodoc/
+.lein-failures
+.lein-deps-sum
+.classpath
+.project
+.settings
+pom.xml
+/.lein-repl-history
+.nrepl-port
+/.idea/
+*.iml

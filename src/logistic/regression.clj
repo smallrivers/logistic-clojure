@@ -123,20 +123,19 @@
 			   grad-mag 999
 			   iter 0]
 			(if (< iter maxiter)
-				(do (println "Iter: " iter " Mag: " grad-mag)
-				(let [[new-theta grad] 
-					(loop [theta-batch theta
-						   grad-vec []
-						   i 0]
-						(if (< i num-batches)
-							(let [X (get X-batches i)
-						   	      y (get y-batches i)
-						   	      [m-batch n] (c/size X)
-								  grad-batch (cost-prime theta-batch [X y])
-								  theta-batch (theta-update grad-batch theta-batch alpha lambda m-batch)]
-								(recur theta-batch (conj grad-vec (c/norm grad-batch)) (+ i 1)))
-							[theta-batch (mlu/avg grad-vec)]))]
-					(recur new-theta grad (+ iter 1))))
+				(let [[new-theta grad]
+							(loop [theta-batch theta
+										 grad-vec []
+										 i 0]
+								(if (< i num-batches)
+									(let [X (get X-batches i)
+												y (get y-batches i)
+												[m-batch n] (c/size X)
+												grad-batch (cost-prime theta-batch [X y])
+												theta-batch (theta-update grad-batch theta-batch alpha lambda m-batch)]
+										(recur theta-batch (conj grad-vec (c/norm grad-batch)) (+ i 1)))
+									[theta-batch (mlu/avg grad-vec)]))]
+					(recur new-theta grad (+ iter 1)))
 				theta))))
 
 	; mini-batch processing with parallel gradient summation

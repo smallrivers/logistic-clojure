@@ -16,7 +16,6 @@
                                                         javax.jms/jms
                                                         com.sun.jdmk/jmxtools
                                                         com.sun.jmx/jmxri]]]
-            :main logistic.core
             :jvm-opts ["-server"
                        "-Xms4G"
                        "-Xmx4G"
@@ -24,5 +23,3 @@
                        "-XX:+UseConcMarkSweepGC"
                        "-XX:+UseParNewGC"
                        "-XX:MaxPermSize=64m"])
-
-

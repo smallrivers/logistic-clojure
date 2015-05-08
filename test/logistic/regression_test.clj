@@ -7,7 +7,7 @@
 (deftest simple-training-test
   (let [train-data (-> (mlu/load-data "data/spamdata/spamtrain.csv") (mlu/scale-features -1.0 1.0))
         test-data (-> (mlu/load-data "data/spamdata/spamtest.csv") (mlu/scale-features -1.0 1.0))
-        params (get-params 0.8 0.0 1000)
+        params (params {:alpha 0.8 :lambda 0.0 :maxiter 1000})
         theta (fit params train-data 10)
         y-pred (predict (test-data :data) theta)
         proba (predict-proba (test-data :data) theta)

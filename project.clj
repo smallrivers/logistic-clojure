@@ -5,20 +5,20 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
 
-                 [ring "1.2.1"]
-                 [compojure "1.1.6"]
+                 [ring "1.3.2"]
+                 [compojure "1.3.3"]
                  [javax.servlet/servlet-api "2.5"] ;recommended in ring github
 
                  [org.clojure/math.numeric-tower "0.0.4"]
                  [org.clojure/data.csv "0.1.2"]
-                 [slingshot "0.10.3"]
+                 [slingshot "0.12.2"]
                  [org.jblas/jblas "1.2.3"]
-                 [net.mikera/core.matrix "0.20.0"]
-                 ; [clatrix "0.3.0"]
+                 [net.mikera/core.matrix "0.34.0"]
+                 [clatrix "0.4.0"]
 
-                 [org.clojure/tools.trace "0.7.6"]
+                 [org.clojure/tools.trace "0.7.8"]
 
-                 [org.clojure/tools.logging "0.2.6"]
+                 [org.clojure/tools.logging "0.3.1"]
 
                  [log4j "1.2.17" :exclusions [javax.mail/mail
                                               javax.jms/jms

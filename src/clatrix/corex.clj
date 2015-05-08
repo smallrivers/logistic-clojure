@@ -1,4 +1,4 @@
-(ns clatrix.core
+(ns clatrix.corex
   (:refer-clojure :exclude [get set map-indexed map rand vector? + - * pp vector])
   (:use [slingshot.slingshot :only [throw+]])
   (:require [clojure.core.matrix :as m]

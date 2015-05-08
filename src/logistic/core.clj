@@ -51,7 +51,7 @@
 
 	; scale data
 	(def train-data (mlu/scale-features train-data -1.0 1.0))
-	(def test-data (mlu/scale-features train-data -1.0 1.0))
+	(def test-data (mlu/scale-features test-data -1.0 1.0))
 
 	; init LR
 	(def params (lr/get-params 0.8 0.0 1000))
